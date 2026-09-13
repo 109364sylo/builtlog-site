@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deleting your account — Built Log</title>
+<style>
+  :root {
+    --ground: #fbfbfa; --surface: #ffffff; --ink: #17191c; --ink-soft: #4d575f;
+    --rule: #e0e3e6; --accent: #1d5c66; --sunk: #f1f3f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #101316; --surface: #161a1e; --ink: #e9edf0; --ink-soft: #9aa6ae;
+      --rule: #272d33; --accent: #63b3bd; --sunk: #1b2126;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding: 48px 20px 96px; }
+  h1 { font-size: clamp(28px, 5vw, 36px); letter-spacing: -0.02em; margin: 0 0 18px; font-weight: 650; }
+  h2 {
+    font-size: 20px; margin: 40px 0 12px; padding-top: 18px;
+    border-top: 1px solid var(--rule); letter-spacing: -0.01em; font-weight: 620;
+  }
+  p, li { color: var(--ink-soft); }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  ol li::marker { color: var(--ink); font-weight: 600; }
+  strong { color: var(--ink); font-weight: 620; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .lede { color: var(--ink); font-size: 17px; }
+  .callout {
+    background: var(--sunk); border-left: 3px solid var(--accent);
+    padding: 14px 16px; border-radius: 0 4px 4px 0; margin: 0 0 18px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Deleting your Built Log account</h1>
+
+<p class="lede">Built Log works without an account. If you never signed in, there is nothing on our servers to delete, and deleting the app removes everything.</p>
+<p>If you did sign in for cloud sync, here is how to delete the account and what happens to your data.</p>
+
+<h2>Delete it from inside the app</h2>
+<ol>
+<li>Open Built Log and go to <strong>Settings</strong>.</li>
+<li>Scroll to <strong>Cloud Sync</strong>.</li>
+<li>Tap <strong>Delete account</strong>.</li>
+<li>Choose what happens to the workouts on your phone:
+  <ul>
+    <li><strong>Delete, keep data on this phone</strong> removes the account and everything on our servers, and leaves your training history on the device.</li>
+    <li><strong>Delete and erase this phone too</strong> does the same and also erases this phone's copy.</li>
+  </ul>
+</li>
+<li>Confirm once more. Deletion runs immediately and cannot be undone.</li>
+</ol>
+
+<h2>Delete it without the app</h2>
+<div class="callout">
+<p>If you have uninstalled Built Log, lost the device, or cannot sign in, email <a href="mailto:support@builtlog.app">support@builtlog.app</a> from the address on the account and ask us to delete it. Say that you want the account deleted; you do not need to explain why.</p>
+<p>We will confirm the request is genuine, delete the account, and reply to confirm, <strong>within 30 days</strong>.</p>
+</div>
+
+<h2>What gets deleted</h2>
+<p>Deleting the account removes your Built Log account itself, along with every record we hold against it. In practice that is:</p>
+<ul>
+<li>Your sign-in identity: the account, the email address on it, and the link to Apple or Google if you signed in that way.</li>
+<li>Every workout record we hold: exercises, workouts and their groups, sessions and their groups, exercises and sets, and categories.</li>
+<li>Every cardio record: runs, races, and running goals, including the prior-injury flag on a goal.</li>
+<li>Every health entry you synced: nutrition days, bodyweight entries, sleep entries, daily targets, and custom macros.</li>
+<li>Your preferences, weekly schedule, and workout locations.</li>
+<li>The counter that tracks how many AI conversions you have used today.</li>
+<li>Your subscription entitlement record, meaning our note of whether Pro is active on the account.</li>
+</ul>
+<p>The account is removed as well as its data, so the email address is free to use again if you ever want to start over.</p>
+
+<h2>Erasing this phone's copy</h2>
+<p>If you chose <strong>Delete and erase this phone too</strong>, Built Log also clears the training data stored on the device: workouts, sessions, health entries, runs and races, plans, coach reports and coach settings, any session you were part way through, and the sync queue and its log. Your app preferences, such as theme and rest-timer settings, are reset rather than deleted, because they are device settings rather than training data.</p>
+<p>A few technical leftovers can remain on the device after that erase, including an identifier the app generates for itself, some app settings, cached copies of files you exported or imported, and any Built Log notifications still in your phone's notification history. Deleting the app removes all of it.</p>
+
+<h2>What we cannot delete</h2>
+<p>Some records are not ours to remove.</p>
+<ul>
+<li><strong>Your subscription.</strong> Deleting your account does not cancel it. Apple and Google own subscriptions, so cancel in the App Store or Play Store subscription settings. If you delete the account with a subscription still running, you will keep being charged.</li>
+<li><strong>Purchase records.</strong> Apple, Google, and RevenueCat, the service that manages our subscriptions, keep transaction and subscription history under their own policies and their own legal and tax obligations. We cannot delete their copies.</li>
+<li><strong>Server error records.</strong> When a request fails, our servers record a status code, a size, and a request reference. These are not organised by account and we cannot pick yours out of them. They expire on their own schedule and hold none of your workout, health, or pasted text.</li>
+</ul>
+
+<h2>Text you sent to AI conversion</h2>
+<p>If you used <strong>Convert with AI</strong>, the text you pasted was passed to Anthropic, the company whose AI performs the conversion, to produce the result. We do not store that text, and there is no copy of it in your account to delete. Anthropic retains it for 30 days and then does not retain it, as described in our <a href="https://builtlog.app/privacy">privacy policy</a>.</p>
+
+<h2>Questions</h2>
+<footer>
+<p>Email <a href="mailto:support@builtlog.app">support@builtlog.app</a>. Our full privacy policy is at <a href="https://builtlog.app/privacy">https://builtlog.app/privacy</a>.</p>
+<p>Evan Thomas</p>
+</footer>
+
+</div>
+</body>
+</html>
