@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Built Log</title>
+<style>
+  :root {
+    --ground: #fbfbfa;
+    --ink: #17191c;
+    --ink-soft: #55606a;
+    --rule: #e0e3e6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #101316;
+      --ink: #e9edf0;
+      --ink-soft: #98a4ad;
+      --rule: #272d33;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: var(--ground);
+    color: var(--ink);
+    font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 34rem; }
+  h1 {
+    margin: 0 0 14px;
+    font-size: clamp(28px, 6vw, 38px);
+    letter-spacing: -0.02em;
+    font-weight: 650;
+  }
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  .contact {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    font-size: 15px;
+  }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+</style>
+</head>
+<body>
+  <main>
+    <h1>Built Log</h1>
+    <p>A workout tracker. Your training data lives on your phone.</p>
+    <p class="contact">Support: <a href="mailto:support@builtlog.app">support@builtlog.app</a></p>
+  </main>
+</body>
+</html>
