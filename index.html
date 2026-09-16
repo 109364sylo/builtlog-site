@@ -3,63 +3,263 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.png">
 <title>Built Log</title>
+<meta name="description" content="A workout and running log that works offline and needs no account. Automatic personal records, supersets, rest timer, and a coach that runs on your phone.">
+<meta property="og:title" content="Built Log">
+<meta property="og:description" content="A workout and running log that works offline and needs no account.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://builtlog.app">
 <style>
   :root {
     --ground: #fbfbfa;
+    --panel: #ffffff;
     --ink: #17191c;
     --ink-soft: #55606a;
     --rule: #e0e3e6;
+    --accent: #b07d12;
+    --mark-filter: invert(1);
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --ground: #101316;
+      --panel: #171b1f;
       --ink: #e9edf0;
       --ink-soft: #98a4ad;
       --rule: #272d33;
+      --accent: #d9a43a;
+      --mark-filter: none;
     }
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px;
+    padding: 0 24px 64px;
     background: var(--ground);
     color: var(--ink);
     font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  main { max-width: 34rem; }
+  .wrap { max-width: 60rem; margin: 0 auto; }
+  .narrow { max-width: 36rem; }
+
+  header { padding: 72px 0 8px; }
   h1 {
-    margin: 0 0 14px;
-    font-size: clamp(28px, 6vw, 38px);
-    letter-spacing: -0.02em;
+    margin: 0;
+    font-size: clamp(34px, 8vw, 54px);
+    letter-spacing: -0.025em;
     font-weight: 650;
   }
-  p { margin: 0 0 14px; color: var(--ink-soft); }
-  .contact {
-    margin-top: 26px;
-    padding-top: 18px;
+  .lockup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin: 0 0 6px;
+  }
+  .lockup h1 { margin: 0; }
+  .mark {
+    flex: none;
+    width: clamp(78px, 15vw, 116px);
+    height: auto;
+    filter: var(--mark-filter);
+  }
+  h1 .log { color: var(--accent); }
+  .tagline {
+    margin: 0 0 18px;
+    font-size: clamp(15px, 2.6vw, 17px);
+    font-weight: 560;
+    color: var(--accent);
+  }
+  .lede {
+    margin: 0 0 10px;
+    font-size: clamp(19px, 3.4vw, 23px);
+    line-height: 1.45;
+    max-width: 30rem;
+  }
+  .sub { margin: 0; color: var(--ink-soft); max-width: 34rem; }
+
+  h2 {
+    margin: 0 0 18px;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  section { margin-top: 64px; }
+
+  .points { display: grid; gap: 28px; }
+  @media (min-width: 720px) { .points { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+  .points h3 { margin: 0 0 6px; font-size: 17px; font-weight: 640; }
+  .points p { margin: 0; color: var(--ink-soft); }
+
+  .shots {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 62%;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 24px 10px;
+    margin: 0 -24px;
+  }
+  @media (min-width: 720px) {
+    .shots { grid-auto-columns: 1fr; overflow: visible; margin: 0; padding: 0 0 4px; }
+  }
+  .shots figure { margin: 0; scroll-snap-align: start; }
+  .shots img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+  }
+  .shots figcaption { margin-top: 10px; font-size: 14px; color: var(--ink-soft); }
+
+  .tiers { display: grid; gap: 24px; }
+  @media (min-width: 720px) { .tiers { grid-template-columns: 1fr 1fr; gap: 28px; } }
+  .tier {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .tier.pro { border-color: var(--accent); }
+  .tier h3 {
+    margin: 0 0 14px;
+    font-size: 13px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 650;
+  }
+  .tier.pro h3 { color: var(--accent); }
+  .tier ul { margin: 0; padding-left: 20px; }
+  .tier li { margin-bottom: 7px; color: var(--ink-soft); }
+  .tier li:last-child { margin-bottom: 0; }
+
+  .note { color: var(--ink-soft); margin-top: 22px; }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 20px;
     border-top: 1px solid var(--rule);
     font-size: 15px;
+    color: var(--ink-soft);
   }
   a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
   a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 </style>
 </head>
 <body>
-  <main>
-    <h1>Built Log</h1>
-    <p>A workout tracker. Your training data lives on your phone.</p>
-    <p class="contact">
-      <a href="/privacy">Privacy policy</a> &nbsp;·&nbsp;
-      <a href="/terms">Terms</a> &nbsp;·&nbsp;
-      <a href="/delete-account">Delete your account</a><br>
-      Support: <a href="mailto:support@builtlog.app">support@builtlog.app</a>
+<div class="wrap">
+
+  <header>
+    <div class="lockup">
+      <h1>Built <span class="log">Log</span></h1>
+      <img class="mark" src="/mark.png" width="621" height="676" alt="">
+    </div>
+    <p class="tagline">Get Built, and log</p>
+    <p class="lede">Log a set in a few taps. Every personal record is caught for you.</p>
+    <p class="sub">A workout and running log that works offline and needs no account. Your training data lives in a database on your phone.</p>
+
+    <!--
+      STORE BADGES: uncomment on launch day, once the app is public on Play.
+      Until then a badge sends people to a page that tells them they cannot have it.
+      Play listing: https://play.google.com/store/apps/details?id=com.sylo1064.liftlog
+      Both stores publish mandatory badge artwork and spacing rules. Use their supplied
+      assets rather than redrawing them.
+
+    <p class="stores">
+      <a href="https://play.google.com/store/apps/details?id=com.sylo1064.liftlog">Get it on Google Play</a>
     </p>
-  </main>
+    -->
+  </header>
+
+  <section>
+    <h2>What makes it different</h2>
+    <div class="points">
+      <div>
+        <h3>It works with no account</h3>
+        <p>Open it and start logging. Workouts, runs, bodyweight, sleep and macros stay on your phone, and nothing is collected if you never sign in.</p>
+      </div>
+      <div>
+        <h3>Records find themselves</h3>
+        <p>Beat a lift and it is flagged the moment you log the set. Nothing to enter by hand, nothing to go back and tidy up.</p>
+      </div>
+      <div>
+        <h3>The coach runs on the phone</h3>
+        <p>It reads your own logged sessions and names one thing to change this week, computed on the device with no network call. Every finding opens to show the numbers behind it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it looks like</h2>
+    <div class="shots">
+      <figure>
+        <img src="/screens/record.png" width="1080" height="1920" loading="lazy" decoding="async"
+             alt="A finished session showing a personal record banner for barbell bench press at 185 pounds, with each set marked PR.">
+        <figcaption>Records are flagged as you log.</figcaption>
+      </figure>
+      <figure>
+        <img src="/screens/workout.png" width="1080" height="1920" loading="lazy" decoding="async"
+             alt="An active workout with three logged sets of bench press and a rest timer counting down.">
+        <figcaption>Log a set, the rest timer starts.</figcaption>
+      </figure>
+      <figure>
+        <img src="/screens/home.png" width="1080" height="1920" loading="lazy" decoding="async"
+             alt="The home screen with a week streak card, activity count and new personal record count.">
+        <figcaption>Lifts and runs both count.</figcaption>
+      </figure>
+      <figure>
+        <img src="/screens/history.png" width="1080" height="1920" loading="lazy" decoding="async"
+             alt="The history screen with lifts and runs tabs, sets breakdown, training frequency and personal records.">
+        <figcaption>Your whole history, broken down.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Free and Pro</h2>
+    <div class="tiers">
+      <div class="tier">
+        <h3>Free</h3>
+        <ul>
+          <li>Unlimited workouts and full session history</li>
+          <li>Run logging and run import</li>
+          <li>The health log for bodyweight, sleep and macros</li>
+          <li>Streaks and all 114 trophies</li>
+          <li>The weekly scheduler and muscle coverage</li>
+          <li>Backup export and import</li>
+          <li>Sharing and importing workouts</li>
+          <li>Light, Dark and Whimsy themes</li>
+          <li>Five saved templates</li>
+        </ul>
+      </div>
+      <div class="tier pro">
+        <h3>Pro</h3>
+        <ul>
+          <li>Cloud sync across devices, so your log survives a lost phone</li>
+          <li>The full coach</li>
+          <li>Charts across your whole history instead of the last 90 days</li>
+          <li>Estimated one-rep max as a chart metric</li>
+          <li>Unlimited saved templates</li>
+          <li>Extra themes</li>
+          <li>Convert with AI, which turns a workout pasted from a text message into a Built Log workout</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note narrow">No ad tracking and no analytics. Tips are there if you want to support development, and they never unlock anything.</p>
+  </section>
+
+  <footer>
+    <a href="/privacy">Privacy policy</a> &nbsp;·&nbsp;
+    <a href="/terms">Terms</a> &nbsp;·&nbsp;
+    <a href="/delete-account">Delete your account</a><br>
+    Support: <a href="mailto:support@builtlog.app">support@builtlog.app</a>
+  </footer>
+
+</div>
 </body>
 </html>
