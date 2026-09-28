@@ -49,9 +49,9 @@
 <div class="wrap">
 
 <h1>Built Log privacy policy</h1>
-<p class="eff">Effective 13 September 2026</p>
+<p class="eff">Effective 27 September 2026</p>
 
-<p class="lede">Built Log is a workout tracker. The short version: your training data lives on your phone. It leaves the phone only when you turn on cloud sync, use AI conversion, or buy a subscription, and each of those is something you choose. We show no ads, we sell no data, and we run no behavioural tracking or product analytics.</p>
+<p class="lede">Built Log is a workout tracker. The short version: your training data lives on your phone. It leaves the phone only when you turn on cloud sync, use an optional AI request, or buy a subscription, and each is something you choose. We show no ads, we sell no data, and we run no behavioural tracking or product analytics.</p>
 
 <h2>What we hold, at a glance</h2>
 <div class="scroller">
@@ -67,6 +67,7 @@
 <tr><td>Your own words: workout, exercise, category and location names, equipment, custom macro labels, and any notes you write</td><td>Only if you turn on sync</td><td>Only with sync</td><td>Us, through Supabase</td><td>Yes</td><td>Backing up and syncing your data</td></tr>
 <tr><td>Text you paste into AI conversion</td><td>Only when you use that feature and agree to it</td><td>Yes, when you convert</td><td>Us, through Supabase, then Anthropic</td><td>See the AI section</td><td>Turning your text into a workout</td></tr>
 <tr><td>Coach report excerpt</td><td>Only when you preview it and press Send</td><td>Yes, on Send</td><td>Us, through Supabase, then Anthropic</td><td>Yes or linkable</td><td>Explaining an existing finding or recap</td></tr>
+<tr><td>Coach planning request: goals, training and health trends, exercise names, and any note you add</td><td>Only when you open the planner and press Send and plan</td><td>Yes, on Send and plan</td><td>Us, through Supabase, then Anthropic</td><td>Yes or linkable</td><td>Choosing and ordering suggested changes for your week or block</td></tr>
 <tr><td>Preferences and weekly schedule</td><td>Only if you turn on sync</td><td>Only with sync</td><td>Us, through Supabase</td><td>Yes</td><td>Backing up and syncing your data</td></tr>
 <tr><td>Purchase and subscription state</td><td>Only if you buy or restore something</td><td>Yes</td><td>Apple or Google, RevenueCat, and us</td><td>Yes once you sign in</td><td>Unlocking what you paid for</td></tr>
 <tr><td>Feature counters: AI requests used today, subscription checks</td><td>Only when you use those features</td><td>Yes</td><td>Us, through Supabase</td><td>Yes</td><td>Enforcing the daily AI limit and keeping Pro accurate</td></tr>
@@ -83,7 +84,7 @@
 <h2>Data on your phone</h2>
 <p>Everything you record in Built Log is stored on your device: workouts, exercises, logged sets, personal records, runs, races and running goals, nutrition entries, bodyweight, sleep hours, targets, schedules, preferences, equipment, workout locations, and coach reports. If you never sign in and never use optional AI requests, this data never leaves your phone and we have no copy of it.</p>
 <p>One thing can still happen before you sign in. If the app was built with purchases enabled, the purchase service creates an anonymous customer record for the installation when the app first runs, before you buy anything and before we know who you are. That is described below.</p>
-<p>Coach reports deserve a specific mention because they touch health-adjacent data. They are computed entirely on your phone by a deterministic engine reading your own logs. Generating a report makes no network request. You can separately choose to send a previewed excerpt for an AI explanation, as described below.</p>
+<p>Coach reports deserve a specific mention because they touch health-adjacent data. They are computed entirely on your phone by a deterministic engine reading your own logs. Generating a report and its initial list of suggested changes make no network request. You can separately choose to send a previewed excerpt for an AI explanation or a Coach planning request, as described below.</p>
 <p>"Workout locations" are names you type, like "home garage" or "the gym on 4th". Built Log has no access to your GPS or any location service, and no location permission. A location in Built Log is a label, not a place on a map.</p>
 
 <h2>Cloud sync is optional</h2>
@@ -92,12 +93,13 @@
 <p>Synced data is used for one thing: making sync work. We do not use it for advertising, profiling, or marketing, and we do not sell it. It is handled by the companies listed under "Companies that handle your data", each doing a specific job for us. Nobody else receives it.</p>
 
 <h2>Optional AI requests</h2>
-<p>Built Log offers two optional AI features through Anthropic. Both require a signed-in Pro account and share a limit of 20 requests per rolling 24 hours.</p>
+<p>Built Log offers three optional AI features through Anthropic. All require a signed-in Pro account and share a limit of 20 requests per rolling 24 hours.</p>
 <p><strong>Workout conversion:</strong> paste text, choose Convert with AI and agree to the conversion disclosure. Built Log sends the pasted text through its Supabase server function to Anthropic. You review the returned workout before importing it. Built Log does not attach your account, email or saved records to the provider request. Names or health details you paste are sent as part of the text.</p>
 <p><strong>Coach explanations:</strong> open Explain or the quick recap on an existing report. The app previews the selected finding, or the summary and up to three findings. Nothing is sent until you press Send. That excerpt goes through Supabase to Anthropic and may include training or health details and custom names. The reply explains the report; it does not change your plan, targets or logs.</p>
-<p>Supabase authenticates both requests and checks Pro access. Our application code stores a shared request counter linked to your account, not the text you send or the response. Coach replies stay in app memory until you clear them, change accounts, turn AI requests off or close the app. Workouts you choose to import become ordinary saved workout data.</p>
+<p><strong>Coach planning:</strong> open Plan my week with AI or Plan this block with AI. The sheet can show you what would be sent. The request includes your goal and priority muscles, weekly set counts and targets, lift trends and estimated maximums, effort ratings, block week, available sleep and protein averages and bodyweight trend, exercise names, candidate changes, and any optional note you write. It does not include your session history or set notes. Nothing is sent until you press Send and plan. Anthropic chooses and orders up to three changes from the app's list; the app calculates all target and load numbers. You review each change before applying it.</p>
+<p>Supabase authenticates these requests and checks Pro access. Our application code stores a shared request counter linked to your account, not the text you send or the response. Coach explanation and planning replies stay in app memory until you clear them, change accounts, turn AI requests off or close the app. Planning choices you pass or apply are stored on this device, not synced. Workouts you choose to import and changes you choose to apply become ordinary saved app data.</p>
 <p><strong>What Anthropic does with it.</strong> Anthropic handles the text under its commercial terms, which state that Anthropic may not train models on the inputs and outputs sent through the service. Under the data-retention setting on our Anthropic account, the text and the response are retained by Anthropic for <strong>30 days</strong>, and may be accessed by Anthropic during that period for safety and security purposes. After that period they are not retained.</p>
-<p>Turn <strong>AI requests</strong> off in Settings to hide its buttons and prompts and stop new AI requests. Local Coach reports, session tips and ordinary workout logging still work. The setting stays off after restarting the app. You can re-enable it in Settings; explicit conversion consent and Coach Send still apply. Turning it off or withdrawing conversion consent does not recall text already sent or delete workouts you already imported.</p>
+<p>Turn <strong>AI requests</strong> off in Settings to hide its buttons and prompts and stop new AI requests. Local Coach reports, session tips and ordinary workout logging still work. The setting stays off after restarting the app. You can re-enable it in Settings; explicit conversion consent and each Coach Send or Send and plan still apply. Turning it off or withdrawing conversion consent does not recall text already sent or delete workouts you already imported.</p>
 
 <h2>Signing in</h2>
 <p>You can create an account with an email address and password, with Sign in with Apple, or with Google. We receive your email address (or Apple's private relay address if you choose to hide yours) and an account identifier from the provider you pick.</p>
@@ -140,7 +142,7 @@
 <thead><tr><th>Company</th><th>What it does</th><th>What it receives</th></tr></thead>
 <tbody>
 <tr><td>Supabase</td><td>Hosts our database, sign-in, and server functions</td><td>Your account, everything you sync, entitlement and counter records, server logs</td></tr>
-<tr><td>Anthropic</td><td>Converts pasted workouts and explains selected Coach text</td><td>Pasted text after conversion consent, or a previewed Coach excerpt after Send</td></tr>
+<tr><td>Anthropic</td><td>Converts pasted workouts, explains selected Coach text, and chooses from Coach planning suggestions</td><td>Pasted text after conversion consent, a previewed Coach excerpt after Send, or a Coach planning request after Send and plan</td></tr>
 <tr><td>RevenueCat</td><td>Manages subscriptions and entitlements</td><td>Purchase and subscription history, your account id and its anonymous id, service details</td></tr>
 <tr><td>Apple, Google</td><td>Sell the subscription and process payment; provide sign-in if you choose it</td><td>Payment details, purchase records, and the sign-in details described above</td></tr>
 </tbody>
